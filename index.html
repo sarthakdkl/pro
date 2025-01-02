@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarthak Dhakal</title> 
+    <link rel="icon" href="brandmark.webp" type="image/webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    
+    
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f9;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #333;
+            color: white;
+            position: fixed;
+            min-height: 10vmin;
+            animation: down 1s linear 1; 
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .gameCollection a{
+            font-size: 4vmax;
+            color: #000;
+            text-decoration: 0.3vmax underline dotted;
+        }
+        .gameCollection{
+            width: 100%;
+            min-height: 10vmin;
+            background-color: #b4b4b4;
+            display: grid;
+            padding: 1vmax 0;
+            place-items: center;
+        }
+        .logo {
+            min-height: 10vmin;
+            width: 10vmin;
+            font-size: 1.5rem;
+            display: grid;
+            place-items: center;
+            font-weight: bold;
+            pointer-events: none;
+        }
+        .logo img{
+            border-radius: 50%;
+            width: 8vmin;
+            object-fit: cover;
+            height: 8vmin;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+        }
+
+        .nav-mobile {
+            display: none;
+            flex-direction: column;
+            background: #444;
+            position: fixed;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .nav-mobile a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+        }
+        .contact p{
+            text-align: justify;
+        }
+        .nav-mobile a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to right, #ff7e5f,  #3c2258);
+
+
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .cta-btn {
+            background-color: #ff5722;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: bounceIn 2.5s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .about, .contact {
+            background-color: #fff;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1vmin;
+            color: white;
+        }
+        .link{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vmin;
+        }
+        footer p, .link a{
+            font-size: 3vmin;
+        }
+        .link a{
+            /* font-size: 1.3vmax; */
+            text-decoration: none;
+            color: #fff;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+
+            .nav-mobile {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .contact h2:last-child{
+            font-size: 2.8vmax;
+        }
+        @keyframes down {
+            from{
+                transform: translateY(-110%);
+            } to{
+                transform: translateY(0%);  
+            }
+        }
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.9);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .logo img{
+            object-position: top;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><img src="brandmark.webp" alt="logo"></div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-mobile">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Welcome to My Website</h1>
+            <p>Hi, I'm Sarthak Dhakal a student with high interest in Business and Travel.</p> 
+        </div>
+    </section>
+    <div class="gameCollection">
+        <a href="gamesList.html">Play Games</a>
+    </div>
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I love hiking and make friends. I am working towards my goal in life.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>Thank you for your interest in reaching out. While we currently do not have a feedback system or database to manage responses, we want to ensure you have the information you need. If you wish to visit us or send any correspondence, please find our address below:</p>
+        
+        <h2>Devchuli-12, Laxmipur, Nawalpur, Nepal</h2> 
+    </section>
+
+    <footer>
+        <p>Copyright &copy; 2024 @ Sarthak Dhakal
+        </p>
+        <div class="link">
+            <a href="https://www.youtube.com/@dklsarthak" target="_blank"><i class="fa-brands   fa-youtube"></i></a>
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=61554312964196"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </footer> 
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMobile = document.querySelector('.nav-mobile');
+
+        hamburger.addEventListener('click', () => {
+            navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+    
+    </script>
+</body>
+</html>
